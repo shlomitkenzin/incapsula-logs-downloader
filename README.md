@@ -11,13 +11,13 @@
 **`python LogsDownloader.py -c path_to_config_folder -l path_to_system_logs_folder -v system_logs_level`**
   
   
-To download Incapsula log files, go over the below steps and replace **`<service-name>`** with **Incapsula**.  
+To download Incapsula log files, go over the below steps and replace **`{service-name}`** with **Incapsula**.  
 If you wish to download Attack Analytics logs and already have configured Incapsula logs script,  
-you should go over the below steps again and create a separate script and configuration files, this time replacing **`<service-name>`** with **AttackAnalytics**.
+you should go over the below steps again and create a separate script and configuration files, this time replacing **`{service-name}`** with **AttackAnalytics**.
  
  - The **-c** and **-l** and **–v** parameters are optional
- - The default value for **path_to_config_folder** is **/etc/`<service-name>`/logs/config**
- - The default value for **path_to_system_logs_folder** is **/var/log/`<service-name>`/logsDownloader/**
+ - The default value for **path_to_config_folder** is **/etc/`{service-name}`/logs/config**
+ - The default value for **path_to_system_logs_folder** is **/var/log/`{service-name}`/logsDownloader/**
  - The default value for **system_logs_level** is **info**
  - The **path_to_config_folder** is the folder where the settings file (**Settings.Config**) is stored
  - The **path_to_system_logs_folder** is the folder where the script output log file is stored (this does not refer to your Incapsula service logs)
@@ -30,7 +30,7 @@ you should go over the below steps again and create a separate script and config
  - Create a subfolder named **keys** under the **path_to_config_folder** folder 
  - In the keys subfolder, create a subfolder with a single digit name. This digit should specify whether this is the first encryption key uploaded (1), the second (2) or so on
  - Inside that folder, save the private key with the name **Private.key**
- - For example, **/etc/`<service-name>`/logs/config/keys/1/Private.key**
+ - For example, **/etc/`{service-name}`/logs/config/keys/1/Private.key**
 
 **Dependencies:**
 
@@ -49,9 +49,9 @@ Both of these can be downloaded using apt-get, pip or any other installer, depen
 	 2. **`$GROUP$`** - The group name that will execute the script
 	 3. **`$PYTHON_SCRIPT$`** - The path to the **`LogsDownloader.py`** file, followed by the parameters for execution of the script
  - On your system, copy the **incapsulaLogs.conf** file and place it under the **/etc/init/** directory.  
-   Rename the file to **`<service-name>`Logs.conf** (e.g. incapsulaLogs.conf for Incapsula logs, or attackAnalyticsLogs.conf for Attack Analytics logs).
+   Note: For Attack Analytics, copy the file and rename it to **attackAnalyticsLogs.conf**.
  - Run **`sudo initctl reload-configuration`** 
- - Run **`sudo ln -s /etc/init/`<service-name>`Logs.conf /etc/init.d/incapsulaLogs`**
- - Execute **`sudo service `<service-name>`Logs start`** 
+ - Run **`sudo ln -s /etc/init/{service-name}Logs.conf /etc/init.d/{service-name}Logs`**
+ - Execute **`sudo service {service-name}Logs start`** 
  - You can use **`start/stop/status`** as any other Linux service
  
