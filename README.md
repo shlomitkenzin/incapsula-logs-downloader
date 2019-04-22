@@ -11,13 +11,13 @@
 **`python LogsDownloader.py -c path_to_config_folder -l path_to_system_logs_folder -v system_logs_level`**
   
   
-To download Incapsula log files, go over the below steps and replace **`{service-name}`** with **Incapsula**.  
+To download Incapsula log files, go over the below steps and replace **{service-name}** with **Incapsula**.  
 If you wish to download Attack Analytics logs and already have configured Incapsula logs script,  
-you should go over the below steps again and create a separate script and configuration files, this time replacing **`{service-name}`** with **AttackAnalytics**.
+you should go over the below steps again and create a separate script and configuration files, this time replacing **{service-name}** with **AttackAnalytics**.
  
  - The **-c** and **-l** and **–v** parameters are optional
- - The default value for **path_to_config_folder** is **/etc/`{service-name}`/logs/config**
- - The default value for **path_to_system_logs_folder** is **/var/log/`{service-name}`/logsDownloader/**
+ - The default value for **path_to_config_folder** is **/etc/{service-name}/logs/config**
+ - The default value for **path_to_system_logs_folder** is **/var/log/{service-name}/logsDownloader/**
  - The default value for **system_logs_level** is **info**
  - The **path_to_config_folder** is the folder where the settings file (**Settings.Config**) is stored
  - The **path_to_system_logs_folder** is the folder where the script output log file is stored (this does not refer to your Incapsula service logs)
@@ -30,7 +30,7 @@ you should go over the below steps again and create a separate script and config
  - Create a subfolder named **keys** under the **path_to_config_folder** folder 
  - In the keys subfolder, create a subfolder with a single digit name. This digit should specify whether this is the first encryption key uploaded (1), the second (2) or so on
  - Inside that folder, save the private key with the name **Private.key**
- - For example, **/etc/`{service-name}`/logs/config/keys/1/Private.key**
+ - For example, **/etc/{service-name}/logs/config/keys/1/Private.key**
 
 **Dependencies:**
 
